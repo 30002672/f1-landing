@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Formula Insight - F1 Data Platform</title>
+    <script src="client.js"></script>
+    <link rel="stylesheet" href="main1.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!-- Background Overlay with Interactive Particles -->
+    <div class="background-overlay" id="backgroundOverlay"></div>
+
+
+
+    <!-- Navigation Bar -->
+    <nav class="formula-navbar-container">
+        <a href="m.html" class="formula-navbar-link">Home</a>
+        <a href="about.html" class="formula-navbar-link">About Us</a>
+        <a href="contact.html" class="formula-navbar-link">Contact</a>
+    </nav>
+    
+
+    <!-- Hero Section with Full Background -->
+    <section id="home" class="hero-section"></section>
+
+    
+ <div>
+    <!-- <div class="particle-line">
+        <div class="particle" style="left: 10%; animation-delay: 0.1s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 0.3s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 0.5s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 0.7s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 0.9s;"></div>
+    </div>  -->
+<!-- Misson section -->
+    <h1 style="color:white; font-size:150px;" class="typewriter">Our Mission</h1>
+    <p style="color:white; font-size:25px;" class="typewriter_smalltext">Driving innovation through data-driven insights in Formula 1</p>
+</div>
+
+
+    <!-- Cards Section -->
+    <section id="insights" class="card-section">
+        <div class="card">
+            
+            <div class="card-body">
+                <h3 class = "typewriter_cardtext " >Race Analytics</h3>
+                <p >Advanced performance tracking and strategic insights</p>
+            </div>
+        </div>
+
+        <div class="card">
+          
+            <div class="card-body">
+                <h3 class = "typewriter_cardtext " >Team Dynamics</h3>
+                <p>In-depth analysis of team performance and innovations</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h3 class = "typewriter_cardtext " >Driver Performace</h3>
+                <p>Comprehensive evaluation of driver skills and potential</p>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <div class="particle-line">
+            <div class="particle" style="left: 10%; animation-delay: 0.1s;"></div>
+            <div class="particle" style="left: 20%; animation-delay: 0.3s;"></div>
+            <div class="particle" style="left: 40%; animation-delay: 0.5s;"></div>
+            <div class="particle" style="left: 60%; animation-delay: 0.7s;"></div>
+            <div class="particle" style="left: 80%; animation-delay: 0.9s;"></div>
+    </div>
+    
+
+<div style= " margin-left: 740px; margin-top: 100px; width:370px;"><h4></h4></div>
+
+    <!-- Python Model Section -->
+    <div style="text-align: center;" font-size= "150px;" >
+        <h1>Driver Position Prediction</h1>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+                <a href="http://localhost:3000/">Driver Prediction</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="centerText2">
+        
+        
+    </div>
+
+
+<script>
+    async function submitForm() {
+      // Retrieve input values from the form
+      const lapNumber = document.getElementById("Lapnumber1").value;
+      const lapTime = document.getElementById("Lapnumber2").value;
+      const pitStopTime = document.getElementById("Lapnumber3").value;
+      const avgLapDiff = document.getElementById("Lapnumber4").value;
+      const avgSpeed = document.getElementById("Lapnumber5").value;
+      const airTemp = document.getElementById("Lapnumber6").value;
+      const trackTemp = document.getElementById("Lapnumber7").value;
+      const humidity = document.getElementById("Lapnumber8").value;
+      const windSpeed = document.getElementById("Lapnumber9").value;
+  
+      // Store the values in an object
+      const inputData = {
+        Lapnumber: lapNumber,
+        LapTimes: lapTime,
+        PitStopTimes: pitStopTime,
+        PrevLap: avgLapDiff,
+        AvgSpeed: avgSpeed,
+        AirTemp_Cel: airTemp,
+        TrackTemp_Cel: trackTemp,
+        Humidity: humidity,
+        WindSpeed_km_h: windSpeed
+      };
+  
+      // Convert the input data to JSON format
+      const jsonData = JSON.stringify(inputData);
+      alert(jsonData)
+      // API endpoint URL
+      const API_URL = "http://127.0.0.1:5000/predict";
+    alert(API_URL)
+      try {
+        alert("here")
+        // Make a POST request to the API using fetch
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: jsonData
+        }).then(response => response.json()) // Parse the JSON response - look into arry and printing out console
+  .then(data => {// assign the data to html label or UI
+    
+    console.log('Success:', data); // Log the server's response
+    const predictionResult = data.Prediction[0];
+    alert(predictionResult)
+    // const parsedData = JSON.parse(data);
+    // value2 = parsedData.prediction[0];
+    // console.log(value2);
+    // document.getElementById("Lapnumber10").value=value2;
+
+  })
+  .catch(error => {
+    console.error('Error:', error); // Log any errors
+  });
+
+
+        // alert("here2")
+        
+    //alert(response.json())
+        
+        // Check if the response is successful
+        // if (!response.ok) {
+        //   throw new Error(`HTTP error! Status: ${response.status}`);
+        // }
+  
+        // // Parse and handle the response
+        // const data = await response.json();
+        // alert("Prediction: " + JSON.stringify(data));
+        
+      } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred: " + error.message);
+      }
+    }
+  </script>
+  
+    
+
+    <!-- <script>// script for driverPred model
+        function submitForm() {
+            // Collect form data
+            const data = {
+                Lapnumber: document.getElementById("Lapnumber").value,
+                LapTimes: document.getElementById("LapTimes").value,
+                PitStopTimes: document.getElementById("PitStopTimes").value,
+                PrevLap: document.getElementById("PrevLap").value,
+                AvgSpeed: document.getElementById("AvgSpeed").value,
+                AirTemp_Cel: document.getElementById("AirTemp_Cel").value,
+                TrackTemp_Cel: document.getElementById("TrackTemp_Cel").value,
+                Humidity: document.getElementById("Humidity").value,
+                WindSpeed_km_h: document.getElementById("WindSpeed_km_h").value
+            };
+
+        console.log("lapnumber is", Lapnumber)
+            
+        }
+    </script> -->
+
+
+    <script>
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Interactive Background Particles
+        function createParticles() {
+            const overlay = document.getElementById('backgroundOverlay');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('moving-particle');
+                
+                // Random sizing
+                const size = Math.random() * 10 + 15;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random starting position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration
+                particle.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 1.5 + 2;
+
+                overlay.appendChild(particle);
+            }
+        }
+
+        // Create particles on page load
+        createParticles();
+    </script>
+
+</body>
+
+</html>

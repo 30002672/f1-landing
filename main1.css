@@ -1,0 +1,1210 @@
+/* Background Image */
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("full3_enhanced.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Glowing Animation */
+.bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+    animation: glowPulse 5s infinite;
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.0; }
+    25% { opacity: 100; }
+    
+    50% { opacity: 200; }
+    75% { opacity: 100; }
+    
+    100% { opacity: 0.0; }
+}
+
+/* Car Animation */
+@keyframes carMove {
+    0% { left: -200px; }
+    100% { left: 100%; }
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #d1e5ff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#200000, #bb0000);
+}
+
+/* Cards */
+.card {
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-50px); }
+}
+/* Thicker Line */
+.line {
+    border: 6px solid white; /* Increased thickness */
+    margin: 30px auto; /* Center the line */
+    width: 70%; /* Line width */
+}
+
+/* Center "Mission" Heading */
+.centerText {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2.5rem;
+    color: white;
+}
+
+/* Cards Container */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    gap: 40px; /* Space between cards */
+}
+
+
+
+/* Card Animations */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+.car-animation {
+    position: absolute;
+    bottom: 20px;
+    left: -200px;
+    width: 150px;
+    animation: carMove 8s linear infinite;
+}
+
+@keyframes carMove {
+    0% { left: -200px; }
+    100% { left: 100%; }
+}
+
+.typewriter {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Center the content */
+    font-size: 5rem; /* Matches your "Our Mission" font size */
+    letter-spacing: .15em; /* Adjust as needed */
+    width: 0; /* Initially hides the text */
+    animation: 
+      typing 5s steps(40, end),
+      blink-caret .75s step-end infinite;
+}
+
+/* Typing effect animation */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: orange; }
+}
+
+  
+
+   /* Particle Line Styling */
+.particle-line {
+    width: 80%;
+    height: 10px;
+    margin: auto;
+    position: relative;
+    background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 15px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleAnimation 2s infinite;
+}
+
+@keyframes particleAnimation {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px) translateX(80px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-10px) translateX(-40px);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+.center-text {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Full viewport height for demonstration */
+    text-align: center; /* Aligns multi-line text horizontally */
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.form-container {
+    max-width: 400px;
+    margin: auto;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}
+
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: black;
+            color: white;
+            position: relative;
+        }
+
+        /* Interactive Background */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .moving-particle {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: moveParticle linear infinite;
+        }
+
+        @keyframes moveParticle {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                transform: translateY(100vh) translateX(100vw);
+            }
+        }
+
+        .top-banner {
+            background-color: #ff4500;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1100;
+        }
+
+        .top-banner a {
+            color: white;
+            text-decoration: underline;
+            margin-left: 10px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 40px;
+            width: 100%;
+            background-color: rgba(20,20,20,0.9);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ff4500;
+        }
+
+        /* Hero Section with Full Background */
+        .hero-section {
+            width: 100%;
+            height: 100vh;
+            background-image: url('full3_enhanced.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero-section::after {
+            content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+        animation: glowPulse 3s infinite;
+}
+@keyframes glowPulse {
+    0% { opacity: 0.0; }
+    25% { opacity: 100; }
+    
+    50% { opacity: 200; }
+    75% { opacity: 100; }
+    
+    100% { opacity: 0.0; }
+}
+
+        /* Card Section */
+.card-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 20px;
+    background-color: rgba(0,0,0,0.9);
+        }
+
+.card {
+    width: 80%;
+    max-width: 400px;
+    background-color: rgba(30,30,30,0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+        }
+
+        .card:nth-child(1) {
+            transform: translateX(-10%);
+        }
+
+        .card:nth-child(2) {
+            transform: translateX(10%);
+        }
+
+        .card:nth-child(3) {
+            transform: translateX(-10%);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(255,255,255,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+            color: white;
+        }
+       /* Typing effect animation */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: orange; }
+}
+
+/* Typewriter with stopping cursor */
+.typewriter {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Center the content */
+    font-size: 5rem; /* Matches your "Our Mission" font size */
+    letter-spacing: .15em; /* Adjust as needed */
+    text-align: center;
+    width: 0; /* Initially hides the text */
+    animation: 
+        typing 7s steps(40, end) forwards, /* Ensures it stays visible */
+        blink-caret 0.75s step-end infinite;
+    animation-iteration-count: 1, infinite; /* Cursor blinks infinitely */
+}
+.typewriter_smalltext{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Center the content */
+    font-size: 1rem; /* Matches your "Our Mission" font size */
+    text-align: center;
+    letter-spacing: .15em; /* Adjust as needed */
+    width: 0; /* Initially hides the text */
+    animation: 
+        typing 12s steps(50, end) forwards, /* Ensures it stays visible */
+        blink-caret 0.75s step-end infinite;
+    animation-iteration-count: 1, infinite; /* Cursor blinks infinitely */
+}
+.typewriter_cardtext{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    font-size: 1rem;
+    text-align: center;
+    margin: 0 auto; /* Center the content */
+    letter-spacing: .15em; /* Adjust as needed */
+    width: 0; /* Initially hides the text */
+    animation: 
+        typing 12s steps(50, end) forwards, /* Ensures it stays visible */
+        blink-caret 0.75s step-end infinite;
+    animation-iteration-count: 1, infinite; /* Cursor blinks infinitely */
+}
+/* Stops the cursor after typing ends */
+.typewriter.stopped {
+    animation: typing 3s steps(40, end) forwards;
+    border-right: none; /* Stops the blinking caret */
+}
+
+.particle-line {
+    width: 80%;
+    height: 10px;
+    margin: auto;
+    position: relative;
+    background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 15px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleAnimation 2s infinite;
+}
+
+@keyframes particleAnimation {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px) translateX(80px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-10px) translateX(-40px);
+        opacity: 0;
+    }
+}
+
+.centerText2 {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: flex-start; /* Align text to the left inside the container */
+    height: 100vh; /* Full viewport height */
+    font-family: Arial, sans-serif; /* Clean font */
+    padding: 20px 50px; /* Add padding for spacing and shift to the right */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.centerText2 h1 {
+    font-size: 50px; /* Large title font */
+    margin-bottom: 20px; /* Space below the title */
+    color: #ffffff; /* Blue title color */
+}
+
+.centerText2 label {
+    margin: 10px 0 5px; /* Space above and below labels */
+    font-size: 16px; /* Make text readable */
+    color: #333; /* Dark text color */
+}
+
+.centerText2 input {
+    width: 300px; /* Standard width */
+    padding: 10px; /* Padding inside input box */
+    font-size: 14px; /* Consistent font size */
+    border: 1px solid #f7f7f7; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 15px; /* Space below each input */
+    transition: border-color 0.3s; /* Smooth interaction */
+}
+
+.centerText2 input:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+
+.centerText2 button {
+    margin-top: 15px; /* Space above the button */
+    padding: 10px 20px; /* Padding inside the button */
+    font-size: 16px; /* Font size */
+    background-color: #007BFF; /* Blue background */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth interaction */
+}
+
+.centerText2 button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    color: white;
+    position: relative;
+}
+
+/* Interactive Background */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.moving-particle {
+    position: absolute;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    animation: moveParticle linear infinite;
+}
+
+@keyframes moveParticle {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(100vh) translateX(100vw);
+    }
+}
+
+.top-banner {
+    background-color: #ff4500;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+}
+
+.top-banner a {
+    color: white;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    background-color: rgba(20,20,20,0.9);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ff4500;
+}
+
+/* Hero Section with Full Background */
+.hero-section {
+    width: 100%;
+    height: 100vh;
+    background-image: url('full3_enhanced.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.hero-section::after {
+    content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: radial-gradient(circle, rgba(255, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+animation: glowPulse 3s infinite;
+}
+@keyframes glowPulse {
+0% { opacity: 0.0; }
+25% { opacity: 100; }
+
+50% { opacity: 200; }
+75% { opacity: 100; }
+
+100% { opacity: 0.0; }
+}
+
+/* Card Section */
+.card-section {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 50px;
+padding: 50px 20px;
+background-color: rgba(0,0,0,0.9);
+}
+
+.card {
+width: 80%;
+max-width: 400px;
+background-color: rgba(30,30,30,0.9);
+border-radius: 15px;
+overflow: hidden;
+transition: all 0.3s ease;
+animation: float 3s ease-in-out infinite;
+box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+}
+
+.card:nth-child(1) {
+    transform: translateX(-10%);
+}
+
+.card:nth-child(2) {
+    transform: translateX(10%);
+}
+
+.card:nth-child(3) {
+    transform: translateX(-10%);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.card:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(255,255,255,0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+    color: white;
+}
+/* Typing effect animation */
+@keyframes typing {
+from { width: 0 }
+to { width: 100% }
+}
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+from, to { border-color: transparent; }
+50% { border-color: orange; }
+}
+
+/* Typewriter with stopping cursor */
+.typewriter {
+overflow: hidden; /* Ensures the content is not revealed until the animation */
+border-right: .15em solid orange; /* The typewriter cursor */
+white-space: nowrap; /* Keeps the content on a single line */
+margin: 0 auto; /* Center the content */
+font-size: 5rem; /* Matches your "Our Mission" font size */
+letter-spacing: .15em; /* Adjust as needed */
+text-align: center;
+width: 0; /* Initially hides the text */
+animation: 
+typing 7s steps(40, end) forwards, /* Ensures it stays visible */
+blink-caret 0.75s step-end infinite;
+animation-iteration-count: 1, infinite; /* Cursor blinks infinitely */
+}
+.typewriter_smalltext{
+overflow: hidden; /* Ensures the content is not revealed until the animation */
+border-right: .15em solid orange; /* The typewriter cursor */
+white-space: nowrap; /* Keeps the content on a single line */
+margin: 0 auto; /* Center the content */
+font-size: 1rem; /* Matches your "Our Mission" font size */
+text-align: center;
+letter-spacing: .15em; /* Adjust as needed */
+width: 0; /* Initially hides the text */
+animation: 
+typing 12s steps(50, end) forwards, /* Ensures it stays visible */
+blink-caret 0.75s step-end infinite;
+animation-iteration-count: 1, infinite; /* Cursor blinks infinitely */
+}
+.typewriter_cardtext{
+overflow: hidden; /* Ensures the content is not revealed until the animation */
+border-right: .15em solid orange; /* The typewriter cursor */
+white-space: nowrap; /* Keeps the content on a single line */
+font-size: 1rem;
+text-align: center;
+margin: 0 auto; /* Center the content */
+letter-spacing: .15em; /* Adjust as needed */
+width: 0; /* Initially hides the text */
+animation: 
+typing 12s steps(50, end) forwards, /* Ensures it stays visible */
+blink-caret 0.75s step-end infinite;
+animation-iteration-count: 1, infinite; /* Cursor blinks infinitely */
+}
+/* Stops the cursor after typing ends */
+.typewriter.stopped {
+animation: typing 3s steps(40, end) forwards;
+border-right: none; /* Stops the blinking caret */
+}
+
+.particle-line {
+width: 80%;
+height: 10px;
+margin: auto;
+position: relative;
+background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
+overflow: hidden;
+}
+
+.particle {
+position: absolute;
+width: 15px;
+height: 10px;
+background-color: white;
+border-radius: 50%;
+opacity: 0;
+animation: particleAnimation 2s infinite;
+}
+
+@keyframes particleAnimation {
+0% {
+transform: translateY(0) translateX(0);
+opacity: 1;
+}
+50% {
+transform: translateY(-20px) translateX(80px);
+opacity: 0;
+}
+100% {
+transform: translateY(-10px) translateX(-40px);
+opacity: 0;
+}
+}
+
+.centerText2 {
+display: flex;
+flex-direction: column; /* Stack elements vertically */
+justify-content: center; /* Center content vertically */
+align-items: flex-start; /* Align text to the left inside the container */
+height: 100vh; /* Full viewport height */
+font-family: Arial, sans-serif; /* Clean font */
+padding: 20px 50px; /* Add padding for spacing and shift to the right */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.centerText2 h1 {
+font-size: 50px; /* Large title font */
+margin-bottom: 20px; /* Space below the title */
+color: #ffffff; /* Blue title color */
+}
+
+.centerText2 label {
+margin: 10px 0 5px; /* Space above and below labels */
+font-size: 16px; /* Make text readable */
+color: #333; /* Dark text color */
+}
+
+.centerText2 input {
+width: 300px; /* Standard width */
+padding: 10px; /* Padding inside input box */
+font-size: 14px; /* Consistent font size */
+border: 1px solid #f7f7f7; /* Light border */
+border-radius: 5px; /* Rounded corners */
+margin-bottom: 15px; /* Space below each input */
+transition: border-color 0.3s; /* Smooth interaction */
+}
+
+.centerText2 input:focus {
+border-color: #007BFF; /* Blue border on focus */
+outline: none; /* Remove default outline */
+}
+
+.centerText2 button {
+margin-top: 15px; /* Space above the button */
+padding: 10px 20px; /* Padding inside the button */
+font-size: 16px; /* Font size */
+background-color: #007BFF; /* Blue background */
+border: none; /* Remove border */
+border-radius: 5px; /* Rounded corners */
+cursor: pointer; /* Pointer cursor */
+transition: background-color 0.3s; /* Smooth interaction */
+}
+
+.centerText2 button:hover {
+background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px;
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {background-color: #f1f1f1}
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
+  
+/* Formula Insight - Minimalist Black & White Navbar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif; /* Modern F1-style font */
+}
+
+body {
+    background-color: #121212; /* Dark background */
+    color: white;
+}
+
+/* Navbar Styling */
+.formula-navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000; /* Solid black navbar */
+    padding: 12px 0;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Navbar Links */
+.formula-navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 20px;
+    transition: 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+/* Hover Effect */
+.formula-navbar-link:hover {
+    color: #b3b3b3; /* Light gray for smooth contrast */
+}
+
+/* Mobile-Friendly */
+@media (max-width: 768px) {
+    .formula-navbar-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+    }
+
+    .formula-navbar-link {
+        display: block;
+        padding: 10px;
+    }
+}
+/* Formula Insight - Black & White Aesthetic  for contact us*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif; /* Modern F1-style font */
+}
+
+body {
+    background-color: #0d0d0d; /* Dark background */
+    color: #f0f0f0; /* White text */
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    background-color: #000;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: 2px solid #f0f0f0;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #f0f0f0;
+    color: #0d0d0d;
+}
+
+/* Content */
+.content {
+    text-align: center;
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background-color: #f0f0f0;
+    color: #0d0d0d;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #b3b3b3;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    border-top: 2px solid #f0f0f0;
+}
+
+footer a {
+    color: #f0f0f0;
+    text-decoration: underline;
+}
+/* General styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0d0d0d;
+    color: #f0f0f0;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #444;
+    background-color: #1a1a1a;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Navigation bar styling */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: 2px solid #f0f0f0;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #f0f0f0;
+    color: #0d0d0d;
+}
+
+/* Main section styling */
+.main-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    position: relative;
+    background: url('background.jpg') no-repeat center center;
+    background-size: cover;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.main-section p {
+    font-size: 2rem;
+    color: #f0f0f0;
+    text-shadow: 2px 2px 5px #000;
+}
+
+/* Content section styling */
+.content {
+    text-align: center;
+    padding: 40px;
+}
+
+.content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content img {
+    margin-top: 20px;
+    max-width: 100%;
+    border-radius: 10px;
+    animation: zoomIn 1s ease-in-out;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-top: 1px solid #444;
+}
+
+footer a {
+    color: #f0f0f0;
+    text-decoration: underline;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #f0f0f0;
+    color: #0d0d0d;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff5e5e;
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

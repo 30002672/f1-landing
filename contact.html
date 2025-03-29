@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Us - Formula Insight</title>
+    <link rel="stylesheet" href="main1.css">
+</head>
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="m.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h2>Get in Touch</h2>
+        <p>Reach out to us through the form below or email us at <a href="mailto:info@formulainsight.com">info@formulainsight.com</a></p>
+
+        <!-- Contact Form -->
+        <form onsubmit="sendEmail(event)">
+            <script>
+                (function() {
+                    emailjs.init("L0N94tx_hoNMMW1bG"); // Replace with your EmailJS public key
+                })();
+            
+                function sendEmail(event) {
+                    event.preventDefault(); // Prevent form submission
+            
+                    emailjs.sendForm("service_oo6xk8n", "template_3u0qm1b", event.target)
+                        .then(response => {
+                            alert("Email sent successfully!");
+                        }, error => {
+                            alert("Failed to send email.");
+                        });
+                }
+            </script>
+            
+          
+            <label for="name">Name:</label>
+            <input type="text" name="name" required placeholder="Your Name">
+        
+            <label for="email">Email:</label>
+            <input type="email" name="email" required placeholder="Your Email">
+        
+            <label for="message">Message:</label>
+            <textarea name="message" required placeholder="Your Message"></textarea>
+        
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Formula Insight | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
